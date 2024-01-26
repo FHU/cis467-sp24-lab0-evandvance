@@ -1,0 +1,21 @@
+nav {
+  width:100vw;
+  display:flex;
+}
+
+nav a{
+  width: 9em;
+  height: 30px;
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover{
+  background: lightblue;
+  border: 2px solid #222;
+}

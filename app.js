@@ -5,22 +5,26 @@ const PORT = process.env.PORT || "3000";
 
 app.set('view engine', 'ejs');
 
-
 app.get("/", (req, res) => {
-
-    res.send("Good Job!")
-
+    res.sendFile(`${__dirname}/public/index.html`)
 })
+
+app.get("/style.css", (req,res) => {
+    res.sendFile(`${__dirname}/public/style.css`)
+});
 
 // http://localhost:3000/greet?name=kaylee&dob=2002
 app.get('/greet', (req, res)=> {
     const query = req.query;
-    res.send(`hey, ${req.query.name}`);
+    res.render('greeting', {title:"Greeting", message:query});
 });
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
-    const params = req.params;
-    res.send(`${req.params.num1}`);
+    const opp = req.params.op;
+    //Forget error handling. Errors dont happen if you use things as intended.
+    const num1 = parseInt(req.params.num1);
+    const num2 = parseInt(req.params.num2);
+    res.render("math",{title:"Math", message:"Test"});
 });
 
 app.get('/pandorasbox', (req, res)=> {
@@ -32,4 +36,4 @@ app.get('/pandorasbox', (req, res)=> {
 
 });
 
-app.listen(PORT, ()=> console.log( `App is running on http://localhost:${PORT}...`);)
+app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
