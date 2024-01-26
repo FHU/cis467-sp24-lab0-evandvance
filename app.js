@@ -9,9 +9,6 @@ app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`)
 })
 
-app.get("/style.css", (req,res) => {
-    res.sendFile(`${__dirname}/public/style.css`)
-});
 
 // http://localhost:3000/greet?name=kaylee&dob=2002
 app.get('/greet', (req, res)=> {
