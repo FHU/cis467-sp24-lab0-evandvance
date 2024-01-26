@@ -12,8 +12,17 @@ app.get("/", (req, res) => {
 
 // http://localhost:3000/greet?name=kaylee&dob=2002
 app.get('/greet', (req, res)=> {
-    const query = req.query;
-    res.render('greeting', {title:"Greeting", message:query});
+    //Oopie no error handling...
+    const dob = parseInt(req.query.dob);
+    const name = req.query.name;
+
+    const year = new Date().getFullYear();
+
+    const age1 = year - dob-1; 
+    const age2 = year - dob;
+
+    const message = `Hello ${name}! You are ${age1} or ${age2} years old.`
+    res.render('greeting', {title:"Greeting", message});
 });
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
