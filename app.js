@@ -1,13 +1,10 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
-const PORT = process.env.PORT || "3000"
+const PORT = process.env.PORT || "3000";
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
-app.listen(PORT, ()=> {
-    console.log( `App is running on http://localhost:${PORT}...`)
-})
 
 app.get("/", (req, res) => {
 
@@ -17,21 +14,22 @@ app.get("/", (req, res) => {
 
 // http://localhost:3000/greet?name=kaylee&dob=2002
 app.get('/greet', (req, res)=> {
-    console.log(req.query)
-
-    res.send(`hey, ${req.query.name}`)
-})
+    const query = req.query;
+    res.send(`hey, ${req.query.name}`);
+});
 
 app.get('/math/:num1/:op/:num2', (req, res)=> {
-    console.log( req.params )
-    res.send(`${req.params.num1}`)
-})
+    const params = req.params;
+    res.send(`${req.params.num1}`);
+});
 
 app.get('/pandorasbox', (req, res)=> {
 
     // do the work
-    const message = "DAD JOKE"
+    const message = "DAD JOKE";
 
-    res.render('pandorasbox', {title: "Pandora's Box", message} )
+    res.render('pandorasbox', {title: "Pandora's Box", message} );
 
-})
+});
+
+app.listen(PORT, ()=> console.log( `App is running on http://localhost:${PORT}...`);)
