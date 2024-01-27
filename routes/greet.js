@@ -18,7 +18,6 @@ router.get('/', (req, res)=> {
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body)
     res.redirect(`/greet?name=${req.body.name}&dob=${req.body.dob}`)
 });
 

@@ -18,7 +18,6 @@ router.get('/:num1/:op/:num2', (req, res)=> {
 });
 
 router.post('/', (req,res) => {
-    console.log(req.body)
     res.redirect(`/math/${req.body.num1}/${req.body.op}/${req.body.num2}`)
 })
 
