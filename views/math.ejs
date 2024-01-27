@@ -5,6 +5,30 @@
     <%- include('common/nav.ejs') %>
     <h1><%= title %></h1>
 
-    <p><%= message %></p>
+    <form class="my-3" action="/math" method="post">
+      <div class="form-group">
+        <label for="num1"
+          >Enter First number:
+          <input type="number" id="num1" name="num1" class="form-control" />
+        </label>
+      </div>
+      <div class="form-group">
+        <select class="form-control" id="op" name="op">
+          <option>plus</option>
+          <option>minus</option>
+          <option>times</option>
+          <option>dividedby</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="num2"
+          >Enter second number:
+          <input type="number" id="num2" name="num2" class="form-control" />
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <%= message %>
   </body>
 </html>
