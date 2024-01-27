@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 router.get('/', (req, res)=> {
-
-    console.log(req.query)
     //Oopie no error handling...
     const dob = parseInt(req.query.dob);
     const name = req.query.name;
