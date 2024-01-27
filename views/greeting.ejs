@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('common/head.ejs', {title}) %>
+  <%- include('common/head.ejs', { title }) %>
   <body class="d-flex flex-column align-items-center">
     <%- include('common/nav.ejs') %>
     <h1><%= title %></h1>
 
-    <form class="container" action="POST">
+    <form class="my-3" action="/greet" method="post">
       <div class="form-group">
-        <label for="name">Enter your Name:</label>
-        <input type="text" id="name" class="form-control" />
+        <label for="name"
+          >Enter your Name:
+          <input type="text" id="name" name="name" class="form-control" />
+        </label>
       </div>
       <div class="form-group">
-        <label for="dob">Enter the year you were born:</label>
-        <input type="text" id="dob" class="form-control" />
+        <label for="dob"
+          >Enter the year you were born:
+          <input type="text" id="dob" name="dob" class="form-control" />
+        </label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <%= message %>
   </body>
 </html>
