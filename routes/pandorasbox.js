@@ -7,7 +7,7 @@ router.get('/', (req, res)=> {
     // do the work
     const message = "DAD JOKE";
 
-    res.render('template', {title: "Pandora's Box", message} );
+    res.render('pandorasbox', {title: "Pandora's Box", message} );
 
 });
 
