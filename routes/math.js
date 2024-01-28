@@ -2,24 +2,25 @@ const express = require("express");
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('math', {title: "Math", message:"Fill out the form"})
-})
+    res.render('math', {title: "Math", message:"Fill out the form"});
+});
 
 router.get('/:num1/:op/:num2', (req, res)=> {
     const op = req.params.op;
-    //Forget error handling. Errors dont happen if you use things as intended.
+
     const num1 = parseInt(req.params.num1);
     const num2 = parseInt(req.params.num2);
 
     const answer = handleOpperation(op,num1,num2);
 
-    const message = `${num1} ${op} ${num2} = ${answer}`
+    let message = `${num1} ${op} ${num2} = ${answer}`;
+    message = isNaN(answer) ? "Bad input" : message;
     res.render("math",{title:"Math", message});
 });
 
 router.post('/', (req,res) => {
     res.redirect(`/math/${req.body.num1}/${req.body.op}/${req.body.num2}`)
-})
+});
 
 function handleOpperation(opp,num1,num2) {
     switch(opp){
@@ -33,7 +34,7 @@ function handleOpperation(opp,num1,num2) {
             return num1 / num2;
         case 'tothepowerof':
             return num1 ** num2;
-    }
-}
+    };
+};
 
 module.exports = router;
