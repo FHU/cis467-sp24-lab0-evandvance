@@ -12,7 +12,7 @@ router.get('/', (req, res)=> {
     const age2 = year - dob;
 
     let message = isEmpty(req.query) ? "Fill out the Form!" : `Hello ${name}! You are ${age1} or ${age2} years old.`;
-    message = isNaN(dob) ? "Bad Input" : message;
+    message = isNaN(dob) && !isEmpty(req.query) ? "Bad Input" : message;
     res.render('greeting', {title: "Greeting", message});
 });
 

@@ -5,6 +5,8 @@
     <%- include('common/nav.ejs') %>
     <h1><%= title %></h1>
 
+    <h2 class="my-3"><%= message %></h2>
+
     <form class="my-3" action="/math" method="post">
       <div class="form-group">
         <label for="num1"
@@ -30,6 +32,5 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-    <%= message %>
   </body>
 </html>
