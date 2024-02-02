@@ -5,12 +5,12 @@ const facts = require("./facts.json")
 router.get('/', async (req, res) => {
 
     const selector = Math.floor(Math.random() * 2);
-    const messages = [dadJoke, getRandomFact];
+    const messages = [getDadJoke, getRandomFact];
 
     res.render('pandorasbox', {title: "Pandora's Box", message: await messages[selector]()} );
 });
 
-async function dadJoke() {
+async function getDadJoke() {
 
     let joke = "";
 

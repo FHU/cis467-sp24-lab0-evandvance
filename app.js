@@ -15,9 +15,8 @@ app.use('/greet', greetRoute);
 app.use('/math', mathRoute);
 app.use('/pandorasbox', pandorasboxRoute);
 
-app.get("/", (req, res) => {
-    res.sendFile(`${__dirname}/public/index.html`);
-});
+// Put this here so that if someone makes a greet.html etc it routes to the dynamic page instead of the static one
+app.use(express.static('public'));
 
 //404 Handling (Always leave at end of routes)
 app.get("*", (req,res) => {
