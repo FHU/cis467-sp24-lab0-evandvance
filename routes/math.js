@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('math', {title: "Math", message:"Fill out the form"});
+    res.render('math', {title: "Math", message:"Fill out the form!"});
 });
 
 router.get('/:num1/:op/:num2', (req, res)=> {
