@@ -5,9 +5,9 @@ const facts = require("./facts.json")
 router.get('/', async (req, res) => {
 
     const selector = Math.floor(Math.random() * 2);
-    const messages = [await dadJoke(), facts[Math.floor(Math.random() * facts.length)].fact];
+    const messages = [dadJoke, getRandomFact];
 
-    res.render('pandorasbox', {title: "Pandora's Box", message: messages[selector]} );
+    res.render('pandorasbox', {title: "Pandora's Box", message: await messages[selector]()} );
 });
 
 async function dadJoke() {
@@ -23,4 +23,7 @@ async function dadJoke() {
     return joke["joke"];
 };
 
+async function getRandomFact() {
+    return facts[Math.floor(Math.random() * facts.length)].fact
+}
 module.exports = router;
